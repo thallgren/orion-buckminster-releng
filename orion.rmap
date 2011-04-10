@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:pde="http://www.eclipse.org/buckminster/PDEMapProvider-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
   <rm:property key="platform.repo" value="http://download.eclipse.org/eclipse/updates/3.7-I-builds"/>
+  <rm:locator pattern="^org\.eclipse\.orion\.buckminster\.releng$" searchPathRef="bucky.releng"/>
   <rm:locator searchPathRef="orion.maps" failOnError="false"/>
   <rm:locator searchPathRef="platform.repo"/>
   <rm:searchPath name="orion.maps">
@@ -16,6 +17,14 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2">
       <rm:uri format="{0}">
         <bc:propertyRef key="platform.repo"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="bucky.releng">
+    <rm:provider componentTypes="buckminster" readerType="git">
+      <rm:property key="git.remote.uri" value="git://github.com/thallgren/orion-buckminster-releng.git"/>
+      <rm:uri format="{0}/.git">
+        <bc:propertyRef key="buckminster.component"/>
       </rm:uri>
     </rm:provider>
   </rm:searchPath>
