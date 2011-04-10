@@ -23,7 +23,8 @@
   <rm:searchPath name="bucky.releng">
     <rm:provider componentTypes="buckminster" readerType="git">
       <rm:property key="git.remote.uri" value="git://github.com/thallgren/orion-buckminster-releng.git"/>
-      <rm:uri format="{0}/.git">
+      <rm:uri format="{0}/{1}/.git">
+        <bc:propertyRef key="workspace.root"/>
         <bc:propertyRef key="buckminster.component"/>
       </rm:uri>
     </rm:provider>
