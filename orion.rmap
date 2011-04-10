@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rm:rmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:pde="http://www.eclipse.org/buckminster/PDEMapProvider-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
+  <rm:property key="platform.repo" value="http://download.eclipse.org/eclipse/updates/3.7-I-builds"/>
+  <rm:locator searchPathRef="orion.maps" failOnError="false"/>
+  <rm:locator searchPathRef="platform.repo"/>
+  <rm:searchPath name="orion.maps">
+    <rm:provider xsi:type="pde:PDEMapProvider" componentTypes="osgi.bundle,eclipse.feature" readerType="git">
+      <rm:property key="git.remote.uri" value="dev.eclipse.org:/gitroot/e4/org.eclipse.orion.server.git"/>
+      <rm:uri format="{0}/org.eclipse.orion.server.git,releng/org.eclipse.orion.releng/maps">
+        <bc:propertyRef key="workspace.root"/>
+      </rm:uri>
+      <pde:replace pattern="ECLIPSE_PLATFORM_REPO" replacement="\$\{platform.repo\}"/>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="platform.repo">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2">
+      <rm:uri format="{0}">
+        <bc:propertyRef key="platform.repo"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+</rm:rmap>

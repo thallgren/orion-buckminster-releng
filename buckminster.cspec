@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cs:cspec xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0" name="org.eclipse.orion.buckminster.releng" componentType="buckminster" version="0.1.0.qualifier">
+    <cs:dependencies>
+        <cs:dependency name="javax.servlet" componentType="osgi.bundle"/>
+        <cs:dependency name="org.eclipse.orion.client.feature" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.orion.server.authentication.feature" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.orion.server.feature" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.orion.server.search.feature" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.orion.server.tests.feature" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.help" componentType="osgi.bundle"/>
+    </cs:dependencies>
+</cs:cspec>
